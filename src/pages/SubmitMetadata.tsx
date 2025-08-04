@@ -1,4 +1,7 @@
-const SubmitMetadata = () => {
-  return <h2>Submit Your Metadata</h2>;
+import MetadataForm from "../components/MetadataForm";
+
+const SubmitPage = () => {
+  return <MetadataForm />;
 };
-export default SubmitMetadata;
+
+export default SubmitPage;
