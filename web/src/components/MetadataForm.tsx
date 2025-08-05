@@ -35,13 +35,25 @@ const MetadataForm: React.FC = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const validationErrors = validate();
 
     if (Object.keys(validationErrors).length === 0) {
-      console.log("Submitted Metadata:", formData);
-      setSubmitted(true);
+      try {
+        const response = await fetch("http://localhost:5000/submit-metadata", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+        console.log("Server response:", data);
+        setSubmitted(true);
+      } catch (error) {
+        console.error("Error submitting metadata:", error);
+      }
+
       setErrors({});
     } else {
       setErrors(validationErrors);
