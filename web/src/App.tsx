@@ -3,8 +3,13 @@ import Home from "./pages/Home";
 import SubmitMetadata from "./pages/SubmitMetadata";
 import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
+import { useEffect } from "react";
+import { initGA } from "./Analytics";
 
 function App() {
+  useEffect(() => {
+    initGA();
+  }, []);
   return (
     <Router>
       <Navbar />

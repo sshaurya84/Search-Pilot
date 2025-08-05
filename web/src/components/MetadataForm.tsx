@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { trackEvent } from "../Analytics";
 
 interface Metadata {
   title: string;
@@ -23,6 +24,15 @@ const MetadataForm: React.FC = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+
+    let error = "";
+    if (name === "title" && !value.trim()) error = "Title is required";
+    if (name === "description" && !value.trim())
+      error = "Description is required";
+    if (name === "url" && (!value.trim() || !value.startsWith("http")))
+      error = "Valid URL required";
+
+    setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const validate = () => {
@@ -41,7 +51,9 @@ const MetadataForm: React.FC = () => {
 
     if (Object.keys(validationErrors).length === 0) {
       try {
-        const response = await fetch("http://localhost:5000/submit-metadata", {
+        const url = "http://localhost:5000/submit-metadata";
+        trackEvent("Metadata", "Submitted Form", url);
+        const response = await fetch(url, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
