@@ -20,6 +20,15 @@ app.post('/submit-metadata', async (req, res) => {
   }
 });
 
+app.get('/metadata', async (req, res) => {
+  try {
+    const metadataList = await Metadata.find().sort({ createdAt: -1 });
+    res.json(metadataList);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch metadata' });
+  }
+});
+
 mongoose
   .connect('mongodb://localhost:27017/searchpilot')
   .then(() => {
