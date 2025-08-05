@@ -1,13 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+
+
+    <title>SearchPilot – Web Content Discovery & SEO Platform</title>
+    <meta name="description" content="Submit, track, and analyze metadata to improve your web content's discoverability and SEO ranking." />
+    <meta name="keywords" content="SEO, metadata, analytics, structured data, JSON-LD, web discovery, SearchPilot" />
+    <meta name="author" content="Shaurya" />
+
+
+    <meta property="og:title" content="SearchPilot – Web Content Discovery" />
+    <meta property="og:description" content="Analyze and optimize metadata for better SEO and visibility." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://search-pilot.com" />
+    <meta property="og:image" content="https://search-pilot.com/preview.png" />
+
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SearchPilot" />
+    <meta name="twitter:description" content="Track and improve web content SEO with SearchPilot." />
+    <meta name="twitter:image" content="https://search-pilot.com/preview.png" />
+
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SearchPilot",
+        "url": "https://search-pilot.com",
+        "description": "A tool to submit and analyze metadata for SEO optimization.",
+        "applicationCategory": "SEO Tool",
+        "operatingSystem": "All"
+      }
+    </script>
+
+    <script type="module" src="/src/main.tsx"></script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
