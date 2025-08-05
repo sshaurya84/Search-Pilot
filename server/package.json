@@ -19,6 +19,7 @@
     "@types/express": "^5.0.3",
     "@types/mongoose": "^5.11.96",
     "@types/node": "^24.2.0",
+    "@types/recharts": "^1.8.29",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }
